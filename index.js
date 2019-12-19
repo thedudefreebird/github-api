@@ -1,5 +1,5 @@
 // 'use strict';
-const apiKey = '90030a150d60ac0caa4c4e009ba553982ec368e0';
+const apiKey = ;
 const searchURL = 'https://api.github.com';
 
 function formatQueryParams(params) {
