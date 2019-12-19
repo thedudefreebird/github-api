@@ -7,19 +7,22 @@ function formatQueryParams(params) {
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
   return queryItems.join('&');
 
-// function displayResults(responseJson) {
-//   console.log(responseJson);
-//   $('#results-list').empty();
-//   $('#results-list').append(
-//       `<li><h3><a href="${responseJson.articles[i].url}">${responseJson.articles[i].title}</a></h3>
-//       <p>${responseJson.articles[i].source.name}</p>
-//       <p>By ${responseJson.articles[i].author}</p>
-//       <p>${responseJson.articles[i].description}</p>
-//       <img src='${responseJson.articles[i].urlToImage}'>
-//       </li>`
-//     )};
-//   $('#results').removeClass('hidden');
-// };
+}
+
+function displayResults(responseJson) {
+   console.log(responseJson);
+   $('#results-list').empty();
+   for (let i = 0; i < responseJson.owner.length ; i++){
+     //Must display the repo name and link to repo(url)
+     $('#results-list').append(
+      `
+      <li><h2>${responseJson.name[i]}</h2></li>
+      <li><h3><a href="${responseJson.url[i]}"></a></h3></li>
+      `
+    )};
+
+    $('#results').removeClass('hidden');
+};
 
 function getUser(query) {
   const params = {
